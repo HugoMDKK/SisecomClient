@@ -1,21 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
-using SisecomClient.Models;
+using SisecomClient.Models.ViewModel;
 using System.Diagnostics;
+using SisecomClient.Models;
 
 namespace SisecomClient.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
         {
-            return View();
+            ClientModel client = new ClientModel();
+
+            client.Id = 1;
+            client.Nome = "Victor Hugo";
+
+            return View(client);
         }
 
         public IActionResult Privacy()

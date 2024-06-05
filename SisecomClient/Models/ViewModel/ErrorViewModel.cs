@@ -1,4 +1,4 @@
-namespace SisecomClient.Models
+namespace SisecomClient.Models.ViewModel
 {
     public class ErrorViewModel
     {
