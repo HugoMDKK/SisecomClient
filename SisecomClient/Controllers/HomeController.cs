@@ -8,13 +8,8 @@ namespace SisecomClient.Controllers
     public class HomeController : Controller
     {
         public IActionResult Index()
-        {
-            ClientModel client = new ClientModel();
-
-            client.Id = 1;
-            client.Nome = "Victor Hugo";
-
-            return View(client);
+        {         
+            return View();
         }
 
         public IActionResult Privacy()

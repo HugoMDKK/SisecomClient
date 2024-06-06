@@ -1,9 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using SisecomClient.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+var provider = builder.Services.BuildServiceProvider();
+var configuration = provider.GetRequiredService<IConfiguration>();
+builder.Services.AddDbContext<BankContext>(item => item.UseSqlServer(configuration.GetConnectionString("DataBase")));
+
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
