@@ -2,13 +2,12 @@
 {
     public class ClientModel
     {
-        public int Id { get; set; }
-        public double Codigo { get; set; }
-        public Boolean PfPj { get; set; }
-        public double CpfCnpj { get; set; }
-        public double RgIe { get; set; }
+        public int Id { get; set; }      
         public string NomeOuRazaoSocial { get; set; }
         public string NomeAbreviadoOuNomeFantasia { get; set; }
+        public string Email { get; set; }
+        public double Telefone { get; set; }
+
 
     }
 }

@@ -11,8 +11,8 @@ using SisecomClient.Data;
 namespace SisecomClient.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20240606140139_SisecomFirstCreate")]
-    partial class SisecomFirstCreate
+    [Migration("20240606232915_SisecomClient")]
+    partial class SisecomClient
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,11 +32,9 @@ namespace SisecomClient.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<double>("Codigo")
-                        .HasColumnType("float");
-
-                    b.Property<double>("CpfCnpj")
-                        .HasColumnType("float");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NomeAbreviadoOuNomeFantasia")
                         .IsRequired()
@@ -46,10 +44,7 @@ namespace SisecomClient.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("PfPj")
-                        .HasColumnType("bit");
-
-                    b.Property<double>("RgIe")
+                    b.Property<double>("Telefone")
                         .HasColumnType("float");
 
                     b.HasKey("Id");

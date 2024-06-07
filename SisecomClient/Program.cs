@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SisecomClient.Data;
+using SisecomClient.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +9,7 @@ builder.Services.AddControllersWithViews();
 var provider = builder.Services.BuildServiceProvider();
 var configuration = provider.GetRequiredService<IConfiguration>();
 builder.Services.AddDbContext<BankContext>(item => item.UseSqlServer(configuration.GetConnectionString("DataBase")));
-
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
 
 var app = builder.Build();
 

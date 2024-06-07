@@ -5,7 +5,7 @@
 namespace SisecomClient.Migrations
 {
     /// <inheritdoc />
-    public partial class SisecomFirstCreate : Migration
+    public partial class SisecomClient : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,12 +16,10 @@ namespace SisecomClient.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Codigo = table.Column<double>(type: "float", nullable: false),
-                    PfPj = table.Column<bool>(type: "bit", nullable: false),
-                    CpfCnpj = table.Column<double>(type: "float", nullable: false),
-                    RgIe = table.Column<double>(type: "float", nullable: false),
                     NomeOuRazaoSocial = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NomeAbreviadoOuNomeFantasia = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    NomeAbreviadoOuNomeFantasia = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telefone = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
