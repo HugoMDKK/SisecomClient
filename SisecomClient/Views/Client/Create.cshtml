@@ -12,24 +12,25 @@
 
         <div class="form-group">
             <label for="nome">Nome/Razão Social</label>
-            <input type="text" asp-for="NomeOuRazaoSocial" class="form-control" placeholder="Digite aqui!">
-            <small id="emailHelp" class="form-text text-muted">Obrigatório!</small>
+            <input type="text" asp-for="Nome" class="form-control" placeholder="Digite aqui!">            
+            @Html.ValidationMessageFor(x => x.Nome)
         </div>
 
         <div class="form-group">
             <label for="nomeAbreviado">Nome Abreviado/Nome Fantasia</label>
-        <input type="text" asp-for="NomeAbreviadoOuNomeFantasia" class=" form-control" placeholder="Digite aqui!">
-            
+        <input type="text" asp-for="Abreviado" class=" form-control" placeholder="Digite aqui!">
+        @Html.ValidationMessageFor(x => x.Abreviado)
         </div>
         <div class="form-group">
             <label for="Email">Email</label>
             <input type="text" asp-for="Email" class="form-control" placeholder="Digite aqui!">
-            
+        @Html.ValidationMessageFor(x => x.Email)
         </div>
 
         <div class="=form-group">
             <label for="Telefone">Telefone/Celular</label>
             <input type="text" asp-for="Telefone" class="form-control" placeholder="Digite aqui!">
+        @Html.ValidationMessageFor(x => x.Telefone)
         </div>
         <br />
           <button type="submit" class="btn btn-primary btn-lg">Adicionar</button>

@@ -1,61 +1,43 @@
-﻿<div class="text-center">
-    <h1 class="display-4">Editar</h1>
+﻿@model ClientModel
+
+@{
+    ViewData["Title"] = "Editar Cliente";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editar dados do Cliente</h1>
 </div>
 
-<form>
+<form asp-controller="Client" asp-action="Att" method="post">
+
+    <input type="hidden" asp-for="Id"/>
+
     <div class="form-group">
         <label for="nome">Nome/Razão Social</label>
-        <input type="text" class="form-control" placeholder="Digite aqui!">
-        <small id="emailHelp" class="form-text text-muted">Obrigatório!</small>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite aqui!">
+        @Html.ValidationMessageFor(x => x.Nome)
     </div>
 
     <div class="form-group">
-        <label for="nome">Nome Abreviado/Nome Fantasia</label>
-        <input type="text" class="form-control" placeholder="Digite aqui!">
-
+        <label for="NomeAbreviado">Nome Abreviado/Nome Fantasia</label>
+        <input type="text" asp-for="Abreviado" class=" form-control" placeholder="Digite aqui!">
+        @Html.ValidationMessageFor(x => x.Abreviado)
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">Email</label>
-        <input type="email" class="form-control" placeholder="Digite aqui!">
-
+        <label for="Email">Email</label>
+        <input type="text" asp-for="Email" class="form-control" placeholder="Digite aqui!">
+        @Html.ValidationMessageFor(x => x.Email)
     </div>
 
-    <div class="form-group">
-        <label for="exampleInputPFPJ">Tipo(PF/PJ)</label>
-        <div class="custom-control custom-radio">
-            <input type="radio" id="Selecionar" name="Selecionar" class="custom-control-input" checked="">
-            <label class="custom-control-label" for="Selecionar">PF</label>
-        </div>
-        <div class="custom-control custom-radio">
-            <input type="radio" id="Selecionar02" name="Selecionar" class="custom-control-input">
-            <label class="custom-control-label" for="Selecionar">PJ</label>
-        </div>
-        <br />
-        <div class="form-group">
-            <label for="exampleInputPFPJ">Tipo(CPF/CNPJ)</label>
-            <div class="custom-control custom-radio">
-                <input type="radio" id="Selecionar03" name="Selecionar02" class="custom-control-input" checked="">
-                <label class="custom-control-label" for="Selecionar02">CPF</label>
-            </div>
-            <div class="custom-control custom-radio">
-                <input type="radio" id="Selecionar04" name="Selecionar02" class="custom-control-input">
-                <label class="custom-control-label" for="Selecionar02">CNPJ</label>
-                <input type="text" class="form-control" placeholder="Digite seu CPF se for o caso!">
-            </div>
-            <br />
-            <div class="form-group">
-                <label for="exampleInputPFPJ">Tipo(RG/IE)</label>
-                <div class="custom-control custom-radio">
-                    <input type="radio" id="Selecionar05" name="Selecionar03" class="custom-control-input" checked="">
-                    <label class="custom-control-label" for="Selecionar03">RG</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" id="Selecionar06" name="Selecionar03" class="custom-control-input">
-                    <label class="custom-control-label" for="Selecionar03">IE</label>
-                    <input type="text" class="form-control" placeholder="Digite RG ou IE corretamente!">
+    <div class="=form-group">
+        <label for="Telefone">Telefone/Celular</label>
+        <input type="text" asp-for="Telefone" class="form-control" placeholder="Digite aqui!">
+        @Html.ValidationMessageFor(x => x.Telefone)
+    </div>
 
-                </div>
-                <br />
-                <button type="submit" class="btn btn-primary btn-lg">Alterar</button>
-                <a class="btn btn-secondary btn-lg" asp-controller="Cliente" asp-action="Index" role="button">Voltar</a>
+    <br />
+    <button type="submit" class="btn btn-primary btn-lg">Editar</button>
+    <a class="btn btn-secondary btn-lg" asp-controller="Client" asp-action="Index" role="button">Voltar</a>
+
 </form>
+

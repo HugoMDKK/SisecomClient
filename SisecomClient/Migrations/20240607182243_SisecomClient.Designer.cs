@@ -11,7 +11,7 @@ using SisecomClient.Data;
 namespace SisecomClient.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20240606232915_SisecomClient")]
+    [Migration("20240607182243_SisecomClient")]
     partial class SisecomClient
     {
         /// <inheritdoc />
@@ -32,20 +32,21 @@ namespace SisecomClient.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Abreviado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NomeAbreviadoOuNomeFantasia")
+                    b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NomeOuRazaoSocial")
+                    b.Property<string>("Telefone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Telefone")
-                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

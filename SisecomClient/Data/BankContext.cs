@@ -8,7 +8,7 @@ namespace SisecomClient.Data
        public BankContext(DbContextOptions<BankContext> options) : base(options) 
         {
         }
-
+        //Banco de armazenamento de dados de Clientes!
         public DbSet<ClientModel> Clients { get; set; }
     }
 }

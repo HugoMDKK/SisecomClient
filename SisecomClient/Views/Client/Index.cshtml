@@ -8,15 +8,35 @@
         <a class="btn btn-success" role="button" asp-controller="Client" asp-action="Create">Adicionar novo contato</a>
     </div>
     <br />
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+    
+    <br/>
+
     <h1 class="display-4">Sistema de controle de clientes</h1>
 
-    <table class="table table-hover">
+    <table class="table" id='table-Clients'>
         <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
+            <tr>  
+                <th scope="col">Id</th>                          
+                <th scope="col">Nome</th>                          
                 <th scope="col">Telefone</th>
-                <th scope="col">Email</th>
+                <th scope="col">Email</th>        
+                <th scope="col">Alterações</th>
             </tr>
         </thead>
         <tbody>
@@ -24,15 +44,16 @@
             {
                 foreach (ClientModel client in Model)
                 {
-                    <tr class="table-active">
-                        <th scope="row">@client.Id</th>
-                        <td>@client.NomeOuRazaoSocial</td>
+                    <tr>
+                        <th scope="row">@client.Id</th>                         
+                        <td>@client.Nome</td>                        
                         <td>@client.Telefone</td>
                         <td>@client.Email</td>
+
                         <td>
                             <div class="btn-group text-center" role="group">
                                 <a role="button" class="btn btn-primary" asp-route-id="@client.Id" asp-controller="Client" asp-action="Edit">Editar</a>
-                                <a role="button" class="btn btn-danger" asp-route-id="@client.Id" asp-controller="Client" asp-action="Delete">Deletar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@client.Id" asp-controller="Client" asp-action="DeleteConfirm">Deletar</a>
                             </div>
                         </td>
                     </tr>
